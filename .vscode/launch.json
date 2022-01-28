@@ -4,12 +4,40 @@
     // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    {
+        "type": "android",
+        "request": "launch",
+        "name": "App Build & Launch",
+        "appSrcRoot": "${workspaceRoot}/app/src/main",
+        "apkFile": "${workspaceRoot}/build/app/outputs/apk/debug/app-debug.apk",
+        "preLaunchTask": "run gradle",
+        "adbPort": 5037
+    },
+    {
+        "type": "android",
+        "request": "attach",
+        "name": "Android Attach",
+        "appSrcRoot": "${workspaceRoot}/app/src/main",
+        "adbPort": 5037,
+        "processId": "${command:PickAndroidProcess}"
+    },
         {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "stockcard_ai_pytorch",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "stockcard_ai_pytorch (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
         }
     ]
 }
